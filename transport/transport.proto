@@ -1,0 +1,18 @@
+syntax = "proto3"; // 指定proto版本
+package transport;     // 指定默认包名
+// 指定golang包名
+option go_package = ".;transport";
+// 定义transport服务
+service Transport {
+    // 定义TransportData方法
+    rpc TransportData(Request) returns (Response) {}
+}
+// HelloRequest 请求结构
+message Request {
+    int32 type = 1;
+    string data = 2;
+}
+// HelloResponse 响应结构
+message Response {
+    string message = 1;
+}
